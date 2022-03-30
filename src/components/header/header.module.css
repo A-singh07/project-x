@@ -1,0 +1,74 @@
+.headerWrapper {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.headerContainer {
+  height: 80px;
+  width: 100%;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoContainer {
+  height: 100%;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary-lightest);
+  border-radius: 10px;
+  color: var(--color-primary);
+}
+.logoContainer img {
+  height: 100%;
+}
+
+.navbarContainer {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.navbarContainer > .navLink {
+  padding: 0 15px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s ease;
+  border-radius: 5px;
+}
+
+.navLink:hover {
+  background-color: var(--color-primary-light);
+}
+
+.navbarContainer > .navLinkActive::after {
+  content: "";
+  position: absolute;
+  bottom: -0.75rem;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background: var(--color-primary-lightest);
+  border-radius: 10px 10px 0 0;
+}
+
+.navbarContainer > button {
+  margin-left: 20px;
+}
+
+.hamburgerContainer {
+  width: 40px;
+  height: 40px;
+  background: var(--color-primary-lightest);
+  border-radius: 8px;
+}

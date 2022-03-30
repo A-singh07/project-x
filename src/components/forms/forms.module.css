@@ -1,0 +1,23 @@
+.formContainer {
+  width: 100%;
+  max-width: 450px;
+  height: 100%;
+  margin: auto;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  border: 2px solid var(--color-primary);
+}
+
+.formHeader {
+  width: 100%;
+  padding: 0 0 0.75rem;
+  border-bottom: 2px solid var(--color-grey-dark);
+}
+
+.formBody {
+  padding: 0.875rem 0;
+}
+
+.formBody .inputField {
+  margin: 0 0 1rem;
+}

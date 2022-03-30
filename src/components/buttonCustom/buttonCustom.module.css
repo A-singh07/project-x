@@ -1,0 +1,29 @@
+.buttonWrapper {
+  padding: 10px 15px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 20px;
+  border-radius: 30px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.primaryBtnClass {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+.primaryBtnClass:hover {
+  background: var(--color-primary-dark);
+}
+
+.secondaryBtnClass {
+  background: transparent;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.secondaryBtnClass:hover {
+  color: var(--color-primary);
+  background: #ffffff;
+}
