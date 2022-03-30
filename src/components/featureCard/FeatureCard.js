@@ -5,7 +5,7 @@ const FeatureCard = () => {
   return (
     <div className={styles.sectionWrapper}>
       <div className={'mainLayout'}>
-        <h3 className={styles.heading}>Specialities</h3>
+        <h3 className={styles.heading}>Browse by Specialities</h3>
         <div className={styles.featureCardsContainer}>
           <div className={styles.featureCard}>
             <div className={styles.featureLogo}></div>

@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import FeatureCard from '../components/featureCard/FeatureCard';
 
 const VideoConsult = () => {
   return (
-    <div>
-      Video Consult
-    </div>
+    <>
+      <FeatureCard />
+    </>
   )
 }
 
