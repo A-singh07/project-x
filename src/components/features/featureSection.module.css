@@ -1,0 +1,50 @@
+.sectionWrapper {
+  width: 100%;
+  padding: 5rem 0;
+  background-color: var(--color-grey);
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-bottom: 3rem;
+}
+
+.featureCardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.featureCard {
+  width: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 2rem;
+  box-shadow: 2px 2px 13px rgb(0 0 0 / 10%);
+}
+
+.cardImage {
+  width: 100%;
+  height: 180px;
+  background: var(--color-primary-light);
+  border-bottom: 1px solid var(--color-grey-dark);
+}
+
+.cardText {
+  padding: 1rem;
+  height: 150px;
+}
+
+.cardHeading {
+  width: 100%;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.cardSubHeading {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 300;
+}

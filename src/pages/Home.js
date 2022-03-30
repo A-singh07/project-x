@@ -1,12 +1,14 @@
 import React from 'react';
 import HeroSection from '../components/heroSection/HeroSection';
-import FeatureCard from '../components/featureCard/FeatureCard';
+import FeaturesSection from '../components/features/FeaturesSection';
+import SpecialitiesSection from '../components/specialities/SpecialitiesSection';
 
 const Home = () => {
   return (
     <>
       <HeroSection />
-      <FeatureCard />
+      <FeaturesSection />
+      <SpecialitiesSection />
     </>
   )
 }

@@ -4,7 +4,7 @@
   --color-primary-dark: #3671c9;
   --color-primary-light: #86aadf;
   --color-primary-lightest: #f3f6fc;
-  --color-grey: #f8f9fa;
+  --color-grey: hsl(210, 17%, 97%);
   --color-grey-dark: #b8b8b8;
   --color-grey-darker: #6c757d;
 

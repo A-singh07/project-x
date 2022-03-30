@@ -1,5 +1,5 @@
 import React from 'react';
-import FeatureCard from '../components/featureCard/FeatureCard';
+import FeatureCard from '../components/specialities/SpecialitiesSection';
 
 const VideoConsult = () => {
   return (
