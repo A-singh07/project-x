@@ -8,6 +8,10 @@
   --color-grey-dark: #b8b8b8;
   --color-grey-darker: #6c757d;
 
+  /* box-shadow */
+  --box-shadow-1: 2px 2px 13px rgb(0 0 0 / 10%);
+  --box-shadow-2: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+
   /* Fonts */
   --font-family-1: "Poppins", sans-serif;
 

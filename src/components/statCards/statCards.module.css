@@ -1,0 +1,8 @@
+.cardContainer {
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 1rem;
+  box-shadow: var(--box-shadow-2);
+  background: #ffffff;
+}
