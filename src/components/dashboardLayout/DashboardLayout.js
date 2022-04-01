@@ -1,5 +1,6 @@
 import React from 'react';
 import StatCards from '../statCards/StatCards';
+import TableCustom from '../tableCustom/TableCustom';
 import styles from './dashboardLayout.module.css';
 
 const DashboardLayout = () => {
@@ -38,6 +39,7 @@ const DashboardLayout = () => {
           }
         </div>
         <h2 className={styles.heading}>Patient Appointment</h2>
+        <TableCustom />
       </div>
     </main >
   )

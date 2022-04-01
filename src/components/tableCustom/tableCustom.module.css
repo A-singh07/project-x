@@ -1,0 +1,26 @@
+.tableHeader th {
+  background: var(--color-grey);
+}
+.tableCell {
+  min-width: 150px;
+}
+
+.rowCollapse {
+  background: var(--color-primary-lightest);
+}
+
+.tableRow .chipSuccess {
+  background-color: var(--color-success-light);
+  color: var(--color-success);
+}
+.tableRow .chipSuccess:hover {
+  background-color: var(--color-success-dark);
+}
+
+.tableRow .chipReject {
+  background-color: var(--color-danger-light);
+  color: var(--color-danger);
+}
+.tableRow .chipReject:hover {
+  background-color: var(--color-danger-dark);
+}

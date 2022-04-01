@@ -13,6 +13,8 @@ import Dashboard from './pages/Dashboard';
 
 import { GeneralContext } from './context/GeneralContext';
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -26,20 +28,29 @@ function App() {
     });
   }, [windowWidth]);
 
+  const theme = createTheme({
+    typography: {
+      "fontFamily": `"Poppins", sans-serif`,
+      "fontSize": 14,
+    }
+  })
+
   return (
-    <GeneralContext.Provider value={{ windowWidth }}>
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
-          <Route path="find-doctors" element={<FindDoctors />} />
-          <Route path="video-consult" element={<VideoConsult />} />
-          <Route path="medicines" element={<Medicines />} />
-          <Route path="dashboard" element={<Dashboard />}>
-            {/* <Route path="" />   */}
+    <ThemeProvider theme={theme}>
+      <GeneralContext.Provider value={{ windowWidth }}>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path="find-doctors" element={<FindDoctors />} />
+            <Route path="video-consult" element={<VideoConsult />} />
+            <Route path="medicines" element={<Medicines />} />
+            <Route path="dashboard" element={<Dashboard />}>
+              {/* <Route path="" />   */}
+            </Route>
           </Route>
-        </Route>
-      </Routes>
-    </GeneralContext.Provider>
+        </Routes>
+      </GeneralContext.Provider>
+    </ThemeProvider>
   );
 }
 
