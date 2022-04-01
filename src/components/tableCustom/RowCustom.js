@@ -57,11 +57,11 @@ const RowCustom = (props) => {
         </TableCell>
       </TableRow>
       <TableRow className={styles.rowCollapse}>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={7}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
               <p style={{ fontWeight: 'bold', paddingBottom: '0.875rem' }}>Comment:</p>
-              <Paper variant="outlined" sx={{ p: 2 }}>
+              <Paper variant="outlined" sx={{ p: 2, fontSize: 12 }}>
                 {row.comment}
               </Paper>
             </Box>
