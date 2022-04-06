@@ -1,0 +1,135 @@
+.LSCont {
+  width: 70%;
+  margin: auto;
+}
+
+.LSInner {
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+
+.LSLeft {
+  width: 50%;
+  margin-right: 2rem;
+}
+
+/* .LSCont h2 {
+  margin-bottom: 20px;
+} */
+
+.LSHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.LSHead a {
+  color: var(--color-primary);
+}
+
+.LSHead a:hover {
+  color: blue;
+}
+
+/* .LSLeft input {
+  width: 100%;
+  height: 50px;
+  padding: 5px 10px;
+} */
+
+/* .LSLeft input::placeholder {
+  font-weight: 500;
+  opacity: 0.7;
+} */
+
+/* .LSLeft select {
+  width: 100%;
+  height: 50px;
+  padding: 5px 10px;
+} */
+
+#CPass {
+  margin-bottom: 20px;
+}
+
+.NameInputCont {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.GSignUp {
+  width: 100%;
+  height: 40px;
+  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.LSRight {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* align-items: flex-end; */
+}
+
+.LSRight img {
+  width: 100%;
+  min-height: 350px;
+}
+
+.none {
+  display: none;
+}
+
+.CABtn,
+.LBtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 992px) {
+  .LSCont {
+    width: 80%;
+    /* margin: auto; */
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .LSCont {
+    width: 90%;
+    /* margin: auto; */
+  }
+  .LSInner {
+    /* display: flex; */
+    flex-wrap: wrap;
+  }
+  .LSLeft {
+    width: 100%;
+    margin-right: 0rem;
+  }
+  .LSRight {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .LSHead {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  /* .LSHead p {
+    font-size: 0.8rem;
+  } */
+  .LSHead h2 {
+    /* font-size: 1.2rem; */
+    margin-bottom: 10px;
+  }
+}
