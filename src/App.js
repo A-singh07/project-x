@@ -10,6 +10,7 @@ import FindDoctors from './pages/FindDoctors';
 import VideoConsult from './pages/VideoConsult';
 import Medicines from './pages/Medicines';
 import Dashboard from './pages/Dashboard';
+import LoginSignup from './pages/LoginSignup';
 
 import { GeneralContext } from './context/GeneralContext';
 
@@ -44,9 +45,9 @@ function App() {
             <Route path="find-doctors" element={<FindDoctors />} />
             <Route path="video-consult" element={<VideoConsult />} />
             <Route path="medicines" element={<Medicines />} />
-            <Route path="dashboard" element={<Dashboard />}>
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="login" element={<LoginSignup />} />
               {/* <Route path="" />   */}
-            </Route>
           </Route>
         </Routes>
       </GeneralContext.Provider>
