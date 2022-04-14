@@ -59,7 +59,9 @@ const Header = () => {
                 </NavLink>
               )
             }
-            <ButtonCustom btnText={'Login / Signup'} secondaryBtn />
+            <a href="/login">
+              <ButtonCustom btnText={'Login / Signup'} secondaryBtn />
+            </a>
           </nav>
         }
       </header>

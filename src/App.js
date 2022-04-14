@@ -11,6 +11,7 @@ import VideoConsult from './pages/VideoConsult';
 import Medicines from './pages/Medicines';
 import Dashboard from './pages/Dashboard';
 import LoginSignup from './pages/LoginSignup';
+import Questions from './pages/Questions';
 
 import { GeneralContext } from './context/GeneralContext';
 
@@ -47,6 +48,7 @@ function App() {
             <Route path="medicines" element={<Medicines />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="login" element={<LoginSignup />} />
+            <Route path="questions" element={<Questions />} />
               {/* <Route path="" />   */}
           </Route>
         </Routes>
