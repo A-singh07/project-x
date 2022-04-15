@@ -12,6 +12,7 @@ import Medicines from './pages/Medicines';
 import Dashboard from './pages/Dashboard';
 import LoginSignup from './pages/LoginSignup';
 import Questions from './pages/Questions';
+import Page_Two from './pages/Page_Two'
 
 import { GeneralContext } from './context/GeneralContext';
 
@@ -49,7 +50,8 @@ function App() {
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="login" element={<LoginSignup />} />
             <Route path="questions" element={<Questions />} />
-              {/* <Route path="" />   */}
+            <Route path="page_two" element={<Page_Two />} />
+            {/* <Route path="" />   */}
           </Route>
         </Routes>
       </GeneralContext.Provider>
