@@ -1,0 +1,46 @@
+.registerAreaMother{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 12px 0;
+  overflow-wrap: break-word;
+}
+.DocRegisterArea{
+  width: 50%;
+  background: url('https://doccure-react.dreamguystech.com/template/d32d8ff210fd1b235eb633865890d151.jpg');
+  background-position: center;background-size: cover;
+  padding: 40px 30px;
+  min-height: 350px;
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.6) ;
+}
+.PatientRegisterArea{
+  width: 50%;
+  background-image: url('https://doccure-react.dreamguystech.com/template/4202ca8e1ca72f276dcdfaedf19d5a0c.jpg');
+  background-position: center; background-size: cover;
+  padding: 40px 30px;
+  min-height: 350px;
+  position:relative;
+  box-shadow: inset 0 0 0 1000px rgba(28, 86, 173, 0.6);
+  justify-content: center;
+}
+.DocRegisterArea h3,.PatientRegisterArea h3{
+color: #fff;
+font-weight: 700;
+margin-bottom: 20px;
+}
+.DocRegisterArea p,.PatientRegisterArea p{
+color: #fff;
+font-weight: 600;
+margin-bottom: 30px;
+}
+.DocRegisterArea button,.PatientRegisterArea button{
+font-size: 14px;
+padding: 6px 12px;
+color: #fff;
+background-color: var(--color-primary);
+border-radius: 30px;
+width: 130px;
+text-align: center;
+font-weight: 700;
+}
+

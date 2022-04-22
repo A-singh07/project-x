@@ -1,8 +1,7 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 import ButtonCustom from '../buttonCustom/ButtonCustom';
-
-import styles from './forms.module.css';
+8a21~import styles from './forms.module.css';
 
 const DoctorForm = () => {
   return (
@@ -20,5 +19,4 @@ const DoctorForm = () => {
     </div>
   )
 }
-
-export default DoctorForm
+1

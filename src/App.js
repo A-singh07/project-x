@@ -12,7 +12,8 @@ import Medicines from './pages/Medicines';
 import Dashboard from './pages/Dashboard';
 import LoginSignup from './pages/LoginSignup';
 import Questions from './pages/Questions';
-import Page_Two from './pages/Page_Two'
+import Page_Two from './pages/Page_Two';
+import BookAppointment from './pages/BookAppointment';
 
 import { GeneralContext } from './context/GeneralContext';
 
@@ -45,6 +46,7 @@ function App() {
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
             <Route path="find-doctors" element={<FindDoctors />} />
+            <Route path="book-appointment" element={<BookAppointment />} />
             <Route path="video-consult" element={<VideoConsult />} />
             <Route path="medicines" element={<Medicines />} />
             <Route path="dashboard" element={<Dashboard />} />
