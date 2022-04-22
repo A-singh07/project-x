@@ -16,7 +16,9 @@
   /* by setting font-size, all the elements will correspond */
   font-size: 9px !important; /* default to 10px */
 }
-
+.calBtn{
+  margin-bottom: 1rem ;
+}
 @media (max-width: 1500px) {
   .responsive-calendar {
     font-size: 8px !important;

@@ -12,6 +12,7 @@ import Medicines from './pages/Medicines';
 import Dashboard from './pages/Dashboard';
 import LoginSignup from './pages/LoginSignup';
 import BookAppointment from './pages/BookAppointment';
+import Calendar from './pages/Calendar';
 
 import { GeneralContext } from './context/GeneralContext';
 
@@ -49,6 +50,7 @@ function App() {
             <Route path="medicines" element={<Medicines />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="login" element={<LoginSignup />} />
+            <Route path="pick-date" element={<Calendar />} />
               {/* <Route path="" />   */}
           </Route>
         </Routes>
