@@ -33,7 +33,7 @@ const LoginForm = () => {
           <input type="text" placeholder="Last Name" />
         </div> */}
         <form action="">
-          <TextField
+          {/* <TextField
             style={{ marginBottom: "10px" }}
             fullWidth
             id="outlined-select-currency"
@@ -41,20 +41,19 @@ const LoginForm = () => {
             label="Select"
             value={option}
             onChange={handleChange}
-          // helperText="Please select your currency"
           >
             {options.map((option) => (
               <MenuItem key={option.value} value={option.value}>
                 {option.label}
               </MenuItem>
             ))}
-          </TextField>
+          </TextField> */}
           <TextField style={{ marginBottom: "10px" }} id="standard-basic" label="Email" fullWidth />
           <TextField style={{ marginBottom: "10px" }} id="standard-basic" label="Password" fullWidth />
         </form>
         {/* <input id={styles.CPass} type="text" placeholder="Confirm Password" /> */}
         <div className={styles.LBtn}>
-          <ButtonCustom primaryBtn btnText="Login" />
+          <ButtonCustom primaryBtn btnText="Login" fullWidth />
         </div>
         {/* <div className={styles.GSignUp}>Sign Up with Google</div> */}
       </div>

@@ -2,56 +2,67 @@
   width: 100%;
   background-color: var(--color-primary);
   color: #ffffff;
+}
+.innerContainer {
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  justify-content:space-around;
+  justify-content: space-around;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
 }
-.footerTop{
+.socialLinks {
+  margin-top: 2rem;
+}
+.footerTop {
   display: flex;
-  flex-wrap:wrap ;
+  flex-wrap: wrap;
 }
-.brandDetail{
+.brandDetail {
   width: 25%;
 }
-.brandLogo{
+.brandLogo {
   margin: auto;
 }
-.brandLogo h1{
-font-weight: 900;
+.brandLogo h1 {
+  font-weight: 900;
 }
-.forPatients{
+.forPatients {
   width: 25%;
   text-align: center;
   list-style-position: inside;
 }
-.forDoctors{
+.forDoctors {
   width: 25%;
   text-align: center;
   list-style-position: inside;
 }
-.contactUs{
+.contactUs {
   width: 25%;
 }
-.footerBottom{
+.footerBottom {
   display: flex;
   justify-content: space-between;
 }
-.brandIcon{
+.brandIcon {
   margin-right: 20px;
 }
-.contactUs p{
+.contactUs p {
   margin: 10px 0px;
 }
-.brandDetail p{
-  margin: 10px 0px;
+.brandDetail p {
+  margin: 5px 0px;
 }
 @media only screen and (max-width: 820px) {
-  .footerTop{
+  .footerTop {
     display: flex;
-    flex-wrap:wrap ;
+    flex-wrap: wrap;
   }
-  .forDoctors, .forPatients,.brandDetail, .contactUs{
+  .forDoctors,
+  .forPatients,
+  .brandDetail,
+  .contactUs {
     width: 100%;
+    text-align: left;
+    margin-top: 1rem;
   }
 }

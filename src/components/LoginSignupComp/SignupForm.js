@@ -72,7 +72,7 @@ const SignupForm = () => {
             <TextField style={{ marginBottom: "10px" }} id="standard-basic" label="Confirm Password" fullWidth />
           </form>
           <div className={styles.CABtn}>
-            <ButtonCustom primaryBtn btnText="Create Account" />
+            <ButtonCustom primaryBtn btnText="Create Account" fullWidth />
           </div>
           <div className={styles.GSignUp}>Sign Up with Google</div>
         </div>

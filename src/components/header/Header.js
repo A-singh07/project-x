@@ -42,7 +42,7 @@ const Header = () => {
           </div>
         }
         <div className={styles.logoContainer}>
-          <h3>LOGO</h3>
+          <h3>{process.env.REACT_APP_NAME}</h3>
           <img src="" alt="" />
         </div>
         {

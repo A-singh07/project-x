@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
     <div className={styles.sectionWrapper}>
       <div className={styles.mainLayout}>
-        <RegisterArea/>
+        <RegisterArea />
         {/* <DoctorForm />
         <PatientForm /> */}
       </div>

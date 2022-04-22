@@ -7,47 +7,44 @@ import { faPhone, faEnvelope, faLocationDot, faLocationArrow } from "@fortawesom
 const Footer = () => {
   return (
     <div className={styles.footerContainer}>
-           <div className={styles.footerTop}>
-        <div className={styles.brandDetail}>
-        <div className={styles.brandLogo}><h1>DocIt</h1></div>  
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-        <div className={styles.socialLinks}>
-          <FontAwesomeIcon className={styles.brandIcon} icon={faTwitter} size="xl"/>
-          <FontAwesomeIcon className={styles.brandIcon} icon={faFacebook} size="xl"/>
-          <FontAwesomeIcon className={styles.brandIcon} icon={faLinkedin} size="xl"/>
+      <div className={styles.innerContainer + ' mainLayout'}>
+        <div className={styles.footerTop}>
+          <div className={styles.brandDetail}>
+            <div className={styles.brandLogo}><h2>{process.env.REACT_APP_NAME}</h2></div>
+            <p>I care for You</p>
+            <div className={styles.socialLinks}>
+              <FontAwesomeIcon className={styles.brandIcon} icon={faTwitter} size="xl" />
+              <FontAwesomeIcon className={styles.brandIcon} icon={faFacebook} size="xl" />
+              <FontAwesomeIcon className={styles.brandIcon} icon={faLinkedin} size="xl" />
+            </div>
+          </div>
+          <div className={styles.forPatients}>
+            <ul>
+              <h4>For Patients</h4>
+              <li>one link</li>
+              <li>one link</li>
+              <li>one link</li>
+            </ul>
+          </div>
+          <div className={styles.forDoctors}>
+            <ul>
+              <h4>For Doctors</h4>
+              <li>one link</li>
+              <li>one link</li>
+            </ul>
+          </div>
+          <div className={styles.contactUs}>
+            <h4>Contact Us</h4>
+            <p><FontAwesomeIcon className={styles.brandIcon} icon={faLocationArrow} />KIIT University, Bhubaneswar</p>
+            <p><FontAwesomeIcon className={styles.brandIcon} icon={faPhone} />+911234567890</p>
+            <p><FontAwesomeIcon className={styles.brandIcon} icon={faEnvelope} />icu360@example.com</p>
           </div>
         </div>
-        <div className={styles.forPatients}>
-        <ul>
-        <h3>For Patients</h3>
-        <li>one link</li>
-        <li>one link</li>
-        <li>one link</li>
-        <li>one link</li>
-        <li>one link</li>
-        </ul>
+        <hr />
+        <div className={styles.footerBottom}>
+          <p>© 2020 Doccure. All rights reserved.</p>
+          <p><a>Terms and Conditions</a> | <a>Policy</a></p>
         </div>
-        <div className={styles.forDoctors}>
-        <ul>
-        <h3>For Doctors</h3>
-        <li>one link</li>
-        <li>one link</li>
-        <li>one link</li>
-        <li>one link</li>
-        <li>one link</li>
-        </ul>
-        </div>
-        <div className={styles.contactUs}>
-        <h2>Contact Us</h2>
-        <p><FontAwesomeIcon className={styles.brandIcon} icon={faLocationArrow} />3556 Beech Street, San Francisco,California, CA 94108</p>
-        <p><FontAwesomeIcon className={styles.brandIcon} icon={faPhone} />+1 315 369 5943</p>
-        <p><FontAwesomeIcon className={styles.brandIcon} icon={faEnvelope} />doccure@example.com</p>
-        </div>
-      </div>
-      <hr/>
-      <div className={styles.footerBottom}>
-      <p>© 2020 Doccure. All rights reserved.</p>
-      <p><a>Terms and Conditions</a> | <a>Policy</a></p>
       </div>
     </div>
   )
