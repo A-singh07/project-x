@@ -14,6 +14,7 @@ import LoginSignup from './pages/LoginSignup';
 import Questions from './pages/Questions';
 import Page_Two from './pages/Page_Two';
 import BookAppointment from './pages/BookAppointment';
+import Calendar from './pages/Calendar';
 
 import { GeneralContext } from './context/GeneralContext';
 
@@ -53,6 +54,8 @@ function App() {
             <Route path="login" element={<LoginSignup />} />
             <Route path="questions" element={<Questions />} />
             <Route path="page_two" element={<Page_Two />} />
+            {/* <Route path="" />   */}
+            <Route path="pick-date" element={<Calendar />} />
             {/* <Route path="" />   */}
           </Route>
         </Routes>

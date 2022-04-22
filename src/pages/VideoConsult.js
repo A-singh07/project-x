@@ -1,10 +1,10 @@
 import React from 'react';
-import FeatureCard from '../components/specialities/SpecialitiesSection';
+import AppointmentPartOne from '../components/bookAppointment/AppointmentPartOne'
 
 const VideoConsult = () => {
   return (
     <>
-      <FeatureCard />
+      <AppointmentPartOne />
     </>
   )
 }
