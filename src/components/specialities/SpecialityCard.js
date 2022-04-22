@@ -4,9 +4,9 @@ import styles from './specialities.module.css'
 const SpecialityCard = ({ image, name, ...rest }) => {
   return (
     <div className={styles.featureCard}>
-      <div className={styles.featureLogo}>
+      <a  href="/pick-date" ><div className={styles.featureLogo}>
         <img src={image} alt="" />
-      </div>
+      </div></a>
       <p className={styles.featureName}>
         {name}
       </p>
