@@ -1,0 +1,45 @@
+.detailsAlert{
+  margin: 20px;
+}
+.dateSection{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.calendarWrapper{
+  display: flex;
+  justify-content: center;
+  margin: 40px;
+}
+.responsive-calendar {
+  /* by setting font-size, all the elements will correspond */
+  font-size: 9px !important; /* default to 10px */
+}
+.calBtn{
+  margin-bottom: 1rem ;
+}
+@media (max-width: 1500px) {
+  .responsive-calendar {
+    font-size: 8px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .responsive-calendar {
+    font-size: 7px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .responsive-calendar {
+    font-size: 6px !important;
+  }
+}
+
+/* Large screens */
+@media (min-width: 2500px) {
+  .responsive-calendar {
+    font-size: 12px !important;
+  }
+}
