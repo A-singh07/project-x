@@ -1,10 +1,11 @@
-import { SubtitlesOutlined } from '@mui/icons-material';
+// import { SubtitlesOutlined } from '@mui/icons-material';
 import React from 'react';
 import {
   NavLink
 } from 'react-router-dom';
 import styles from './registerArea.module.css';
 import ButtonCustom from '../buttonCustom/ButtonCustom';
+
 const RegisterArea = () => {
   return (
     <div className={styles.registerAreaMother}>

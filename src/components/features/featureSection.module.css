@@ -23,6 +23,7 @@
   overflow: hidden;
   margin: 2rem;
   box-shadow: var(--box-shadow-1);
+  cursor: pointer;
 }
 
 .cardImage {
@@ -32,9 +33,14 @@
   border-bottom: 1px solid var(--color-grey-dark);
 }
 
+.cardImage img {
+  width: 100%;
+  height: 100%;
+}
+
 .cardText {
   padding: 1rem;
-  height: 150px;
+  min-height: 150px;
 }
 
 .cardHeading {
@@ -47,4 +53,8 @@
   margin-top: 0.75rem;
   font-size: 0.875rem;
   font-weight: 300;
+}
+
+.ratingContainer {
+  margin-top: 1rem;
 }
