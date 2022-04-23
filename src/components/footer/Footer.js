@@ -2,7 +2,11 @@ import React from 'react';
 import styles from './footer.module.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { faPhone, faEnvelope, faLocationDot, faLocationArrow } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPhone,
+  faEnvelope,
+  faLocationArrow
+} from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
   return (
@@ -43,7 +47,7 @@ const Footer = () => {
         <hr />
         <div className={styles.footerBottom}>
           <p>© 2020 Doccure. All rights reserved.</p>
-          <p><a>Terms and Conditions</a> | <a>Policy</a></p>
+          <p>Terms and Conditions | Policy</p>
         </div>
       </div>
     </div>

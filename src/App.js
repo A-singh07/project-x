@@ -47,16 +47,15 @@ function App() {
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
             <Route path="find-doctors" element={<FindDoctors />} />
-            <Route path="book-appointment" element={<BookAppointment />} />
             <Route path="video-consult" element={<VideoConsult />} />
             <Route path="medicines" element={<Medicines />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="login" element={<LoginSignup />} />
             <Route path="questions" element={<Questions />} />
             <Route path="page_two" element={<Page_Two />} />
-            {/* <Route path="" />   */}
             <Route path="pick-date" element={<Calendar />} />
-            {/* <Route path="" />   */}
+            <Route path="book-appointment" element={<BookAppointment />} />
+
           </Route>
         </Routes>
       </GeneralContext.Provider>
