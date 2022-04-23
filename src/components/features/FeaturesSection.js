@@ -1,27 +1,32 @@
 import React from 'react';
-import FeatureCard from './FeatureCard'
+import FeatureCard from './FeatureCard';
+import videoConsult from '../../assets/zoomDoc.png'
+import mapImage from '../../assets/map.jpeg';
+import medicineImage from '../../assets/medicineOnline.jpg';
+import labtestImage from '../../assets/labtest.png';
+
 import styles from './featureSection.module.css';
 
 const FeaturesSection = () => {
 
   const cardData = [
     {
-      image: '',
+      image: videoConsult,
       heading: 'Instant Video Consultation',
       subHeading: 'Connect with doctors in seconds'
     },
     {
-      image: '',
+      image: mapImage,
       heading: 'Find doctor near you',
       subHeading: 'Lorem ipsumm ascmmonasd'
     },
     {
-      image: '',
+      image: medicineImage,
       heading: 'Order Medicines online',
       subHeading: 'Lorem ipsumm ascmmonasd'
     },
     {
-      image: '',
+      image: labtestImage,
       heading: 'Lab tests',
       subHeading: 'Lorem ipsumm ascmmonasd'
     },
