@@ -8,7 +8,7 @@ import CreateAccountImg from '../../assets/CreateAccount.jpg'
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import { userLogin } from '../../services/auth';
-import { getPatientDetails } from '../../services/general';
+import { getPatientDetails, getDoctorDetails } from '../../services/general';
 import { GeneralContext } from '../../context/GeneralContext';
 
 
@@ -49,16 +49,26 @@ const LoginForm = () => {
 
           // Get patient profile
           // TODO: Need generic API to get any profile.
-          getPatientDetails(res._id)
-            .then((prof) => {
-              if (prof) {
-                sessionStorage.setItem("userData", JSON.stringify(prof));
-                setUserData(prof)
-              }
-            })
+          if (res.userType === 'patient') {
 
-          if (res.userType === 'doctor') navigate('/dashboard')
-          else navigate('/')
+            getPatientDetails(res._id)
+              .then((prof) => {
+                if (prof) {
+                  sessionStorage.setItem("userData", JSON.stringify(prof));
+                  setUserData(prof)
+                  navigate('/')
+                }
+              })
+          } else if (res.userType === 'doctor') {
+            getDoctorDetails(res._id)
+              .then((prof) => {
+                if (prof) {
+                  sessionStorage.setItem("userData", JSON.stringify(prof));
+                  setUserData(prof)
+                  navigate('/dashboard')
+                }
+              })
+          }
         } else {
           alert("Something went wrong! check both fields again");
         }

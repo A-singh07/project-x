@@ -28,6 +28,20 @@ export const getPatientDetails = async (userId) => {
 }
 
 
+// Get doctor's details
+export const getDoctorDetails = async (userId) => {
+  let response;
+
+  await axios.get(`/doctor/${userId}`)
+    .then((res) => {
+      response = res.data
+    })
+    .catch(err => console.log('Error in getting the user Profile', err))
+
+  return response;
+}
+
+
 // Get All Medical Questions
 export const getQuestion = async () => {
   let response;

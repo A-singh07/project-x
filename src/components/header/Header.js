@@ -48,7 +48,7 @@ const Header = () => {
 
   const handleLogout = () => {
     sessionStorage.clear();
-    window.location.reload();
+    window.location.href = '/';
   }
 
 

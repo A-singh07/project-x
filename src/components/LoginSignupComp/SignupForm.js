@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
+  useLocation,
   useNavigate
 } from 'react-router-dom';
 import styles from './LoginSignupComp.module.css'
@@ -12,6 +13,7 @@ import { userRegister } from '../../services/auth';
 const SignupForm = () => {
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const options = [
     {
@@ -35,6 +37,12 @@ const SignupForm = () => {
     cnfpassword: '',
     userType: option
   });
+
+  // useEffect(() => {
+  //   if (location.state === 'doctor-register') {
+  //     setOption('doctor')
+  //   }
+  // }, [])
 
   const [incorrectPassword, setIncorrectPassword] = useState(false)
 
@@ -76,8 +84,14 @@ const SignupForm = () => {
       userRegister(userObj)
         .then((res) => {
           if (res && res._id) {
-            sessionStorage.setItem("userRegister", JSON.stringify(res))
-            navigate('/page_two')
+            if (userObj.userType === 'patient') {
+              sessionStorage.setItem("userRegister", JSON.stringify(res))
+              navigate('/page_two')
+            }
+            else if (userObj.userType === 'doctor') {
+              alert("Profile submitted, we'll verify the details and contact you soon.")
+              navigate('/')
+            }
           }
           setLoader(false)
         })
