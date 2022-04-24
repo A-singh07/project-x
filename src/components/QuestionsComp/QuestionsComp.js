@@ -56,7 +56,11 @@ const QuestionsComp = () => {
 
     if (!userId) return
 
-    updatePatient(userId, questionAns)
+    const updateObj = {
+      medicalHistory: questionAns
+    }
+
+    updatePatient(userId, updateObj)
       .then((res) => {
         if (res) {
           sessionStorage.setItem("userData", JSON.stringify(res));
@@ -64,7 +68,10 @@ const QuestionsComp = () => {
 
           sessionStorage.removeItem("userRegister");
           alert("Medical history updated!")
-          navigate("/")
+
+          navigate("/login", {
+            state: "login"
+          });
         }
         setBtnLoader(false)
       })

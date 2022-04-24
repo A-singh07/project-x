@@ -1,7 +1,11 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import {
-  NavLink
+  NavLink,
+  useNavigate
 } from 'react-router-dom';
+
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import Avatar from '@mui/material/Avatar';
 
 import { GeneralContext } from '../../context/GeneralContext';
@@ -11,7 +15,8 @@ import styles from './header.module.css';
 
 const Header = () => {
 
-  const { windowWidth, loginData } = useContext(GeneralContext)
+  const { windowWidth, loginData, userData } = useContext(GeneralContext);
+  const navigate = useNavigate();
 
   const navbarList = [
     {
@@ -31,6 +36,20 @@ const Header = () => {
       link: '/medicines'
     },
   ]
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    sessionStorage.clear();
+    window.location.reload();
+  }
 
 
   return (
@@ -62,7 +81,18 @@ const Header = () => {
             }
             {
               loginData && loginData.token ?
-                <Avatar sx={{ width: 40, height: 40, marginLeft: '1rem' }}></Avatar> :
+                <>
+                  <Avatar sx={{ width: 40, height: 40, marginLeft: '1rem' }} onClick={handleClick} style={{ cursor: 'pointer' }}></Avatar>
+                  <Menu
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                  >
+                    <MenuItem>{userData && userData.name}</MenuItem>
+                    <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                  </Menu>
+                </>
+                :
                 <NavLink to={'login'}>
                   <ButtonCustom btnText={'Login / Signup'} secondaryBtn />
                 </NavLink>

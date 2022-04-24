@@ -1,4 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import {
+  useLocation
+} from 'react-router-dom';
 import styles from './LoginSignupComp.module.css'
 import ButtonCustom from '../buttonCustom/ButtonCustom'
 import CreateAccountImg from '../../assets/CreateAccount.jpg'
@@ -7,10 +10,15 @@ import SignupForm from './SignupForm'
 
 const LoginSignupComp = () => {
 
-  const [toggleForm, setToggleForm] = useState(false)
+  const location = useLocation();
+  const [toggleForm, setToggleForm] = useState(false);
+
+  useEffect(() => {
+    location.state === "login" && setToggleForm(true)
+  }, [])
 
   return (
-    <div className={' mainLayout'}>
+    <div className={'mainLayout'}>
       <div className={styles.LSHead}>
         <h2>{toggleForm ? "Login" : "Create Account"}</h2>
         <div className={styles.message}>

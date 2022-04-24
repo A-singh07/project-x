@@ -13,7 +13,8 @@
   background: var(--color-primary);
   color: #ffffff;
 }
-.primaryBtnClass:hover {
+.primaryBtnClass:hover,
+.primaryBtnClass:focus {
   background: var(--color-primary-dark);
 }
 
@@ -23,7 +24,8 @@
   color: #ffffff;
 }
 
-.secondaryBtnClass:hover {
+.secondaryBtnClass:hover,
+.secondaryBtnClass:focus {
   color: var(--color-primary);
   background: #ffffff;
 }

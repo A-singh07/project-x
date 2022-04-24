@@ -59,8 +59,10 @@ const LoginForm = () => {
 
           if (res.userType === 'doctor') navigate('/dashboard')
           else navigate('/')
-          setLoader(false)
+        } else {
+          alert("Something went wrong! check both fields again");
         }
+        setLoader(false)
       })
   }
 

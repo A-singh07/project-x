@@ -66,7 +66,6 @@ function App() {
             <Route path="page_two" element={<Page_Two />} />
             <Route path="pick-date" element={<Calendar />} />
             <Route path="book-appointment" element={<BookAppointment />} />
-
           </Route>
         </Routes>
       </GeneralContext.Provider>

@@ -13,7 +13,7 @@ const Datepicker = () => {
   useEffect(() => {
     if (sessionStorage.getItem("userData") && JSON.parse(sessionStorage.getItem("userData")).appointments.length === 0)
       setMedicalHist(false)
-  }, [])
+  }, []);
 
   return (
     <>
