@@ -35,7 +35,7 @@
 .subDiv > p {
   font-size: 0.75rem;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   text-align: left;
   padding: 0.75rem;
   border-radius: 10px;

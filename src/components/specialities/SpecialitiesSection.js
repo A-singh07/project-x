@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  useNavigate
+} from 'react-router-dom';
 import SpecialityCard from './SpecialityCard';
 import styles from './specialities.module.css';
 
@@ -47,6 +50,13 @@ const SpecialitiesSection = () => {
     },
   ]
 
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    JSON.parse(sessionStorage.getItem("loginData")).token &&
+      navigate('/pick-date')
+  }
+
   return (
     <section className={styles.sectionWrapper}>
       <div className={'mainLayout'}>
@@ -55,7 +65,7 @@ const SpecialitiesSection = () => {
         <div className={styles.featureCardsContainer}>
           {
             specialitiesData.map((card, i) =>
-              <SpecialityCard name={card.name} image={card.image} key={i} />
+              <SpecialityCard name={card.name} image={card.image} key={i} onClick={handleClick} />
             )
           }
         </div>

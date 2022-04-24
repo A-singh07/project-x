@@ -18,6 +18,11 @@
   padding-right: 1rem;
 }
 
+.loaderContainer {
+  width: 100%;
+  text-align: center;
+}
+
 @media only screen and (max-width: 768px) {
   .questionCont {
     width: 80%;

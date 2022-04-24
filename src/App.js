@@ -30,13 +30,19 @@ function App() {
   axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [userData, setUserData] = useState()
+  const [userData, setUserData] = useState();
+  const [loginData, setLoginData] = useState();
 
   useEffect(() => {
     window.addEventListener("resize", () => {
       setWindowWidth(window.innerWidth);
     });
   }, [windowWidth]);
+
+  useEffect(() => {
+    sessionStorage.getItem("userData") && setUserData(JSON.parse(sessionStorage.getItem("userData")))
+    sessionStorage.getItem("loginData") && setLoginData(JSON.parse(sessionStorage.getItem("loginData")))
+  }, [])
 
   const theme = createTheme({
     typography: {
@@ -47,7 +53,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <GeneralContext.Provider value={{ windowWidth, setUserData, userData }}>
+      <GeneralContext.Provider value={{ windowWidth, setUserData, userData, setLoginData, loginData }}>
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />

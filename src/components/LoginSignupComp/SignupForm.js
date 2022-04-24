@@ -66,7 +66,8 @@ const SignupForm = () => {
         userObj = {
           name: signupObject.name,
           email: signupObject.email,
-          password: signupObject.password
+          password: signupObject.password,
+          userType: signupObject.userType
         }
       } else {
         userObj = signupObject;
@@ -78,7 +79,8 @@ const SignupForm = () => {
             sessionStorage.setItem("userRegister", JSON.stringify(res))
             navigate('/page_two')
           }
-        }).catch(err => alert("Couldn't register, try again!"))
+          setLoader(false)
+        })
 
     } else {
       alert("Fill out all the fields to continue!");
@@ -150,6 +152,7 @@ const SignupForm = () => {
               onChange={handleChange}
               value={signupObject.password}
               error={incorrectPassword}
+              type="password"
             />
             <TextField
               style={{ marginBottom: "10px" }}
@@ -160,6 +163,7 @@ const SignupForm = () => {
               value={signupObject.cnfpassword}
               error={incorrectPassword}
               helperText={incorrectPassword && "Passwords do not match, please retype"}
+              type="password"
             />
             <ButtonCustom
               primaryBtn

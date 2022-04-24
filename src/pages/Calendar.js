@@ -3,7 +3,7 @@ import Datepicker from '../components/bookAppointment/Datepicker'
 
 const Calendar = () => {
   return (
-    <div><Datepicker/></div>
+    <><Datepicker /></>
   )
 }
 

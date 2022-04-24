@@ -11,7 +11,7 @@ import styles from './header.module.css';
 
 const Header = () => {
 
-  const { windowWidth, userData } = useContext(GeneralContext)
+  const { windowWidth, loginData } = useContext(GeneralContext)
 
   const navbarList = [
     {
@@ -61,13 +61,11 @@ const Header = () => {
               )
             }
             {
-              !userData ?
+              loginData && loginData.token ?
+                <Avatar sx={{ width: 40, height: 40, marginLeft: '1rem' }}></Avatar> :
                 <NavLink to={'login'}>
                   <ButtonCustom btnText={'Login / Signup'} secondaryBtn />
-                </NavLink> :
-                <Avatar sx={{ width: 40, height: 40, marginLeft: '1rem' }}>
-
-                </Avatar>
+                </NavLink>
             }
           </nav>
         }

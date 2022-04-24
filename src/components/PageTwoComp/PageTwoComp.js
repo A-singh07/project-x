@@ -26,6 +26,7 @@ const PageTwoComp = () => {
     setOpen(true);
     setTimeout(() => {
       navigate('/')
+      sessionStorage.removeItem("userRegister")
     }, 2000);
   }
 
@@ -34,7 +35,7 @@ const PageTwoComp = () => {
 
   useEffect(() => {
     sessionStorage.getItem("userRegister") &&
-      setUserName(JSON.parse(sessionStorage.getItem("userRegister")))
+      setUserName(JSON.parse(sessionStorage.getItem("userRegister")).name)
   }, [])
 
 

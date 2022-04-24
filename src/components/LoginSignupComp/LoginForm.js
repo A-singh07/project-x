@@ -8,12 +8,13 @@ import CreateAccountImg from '../../assets/CreateAccount.jpg'
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import { userLogin } from '../../services/auth';
+import { getPatientDetails } from '../../services/general';
 import { GeneralContext } from '../../context/GeneralContext';
 
 
 const LoginForm = () => {
 
-  const { setUserData } = useContext(GeneralContext)
+  const { setLoginData, setUserData } = useContext(GeneralContext)
 
   const navigate = useNavigate();
   const [loader, setLoader] = useState(false);
@@ -43,9 +44,22 @@ const LoginForm = () => {
     userLogin(loginObject)
       .then((res) => {
         if (res && res._id) {
-          sessionStorage.setItem("userData", JSON.stringify(res));
-          setUserData(res);
-          navigate('/')
+          sessionStorage.setItem("loginData", JSON.stringify(res));
+          setLoginData(res);
+
+          // Get patient profile
+          // TODO: Need generic API to get any profile.
+          getPatientDetails(res._id)
+            .then((prof) => {
+              if (prof) {
+                sessionStorage.setItem("userData", JSON.stringify(prof));
+                setUserData(prof)
+              }
+            })
+
+          if (res.userType === 'doctor') navigate('/dashboard')
+          else navigate('/')
+          setLoader(false)
         }
       })
   }
@@ -70,6 +84,7 @@ const LoginForm = () => {
             name="password"
             onChange={handleChange}
             value={loginObject.password}
+            type="password"
           />
           <ButtonCustom
             primaryBtn

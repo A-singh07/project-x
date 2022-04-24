@@ -2,21 +2,25 @@ import React from 'react'
 import styles from './QuestionsComp.module.css'
 import { FormGroup, FormControlLabel, Checkbox } from '@mui/material'
 
-const Question = ({ data }) => {
+const Question = ({ data, onChange }) => {
   return (
-    <div>
+    <>
       <div className={styles.question}>
-        <p>What Are Your Medical Histories?</p>
+        <h5 style={{ marginBottom: '1rem' }}>{data.question}</h5>
         <FormGroup>
           {
             data.options.map((option, i) =>
-              <FormControlLabel control={<Checkbox />} label={option} key={i} />
-
+              <FormControlLabel
+                control={<Checkbox />}
+                label={option}
+                key={i}
+                onChange={onChange}
+              />
             )
           }
         </FormGroup>
       </div>
-    </div>
+    </>
   )
 }
 

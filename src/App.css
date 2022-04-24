@@ -36,6 +36,13 @@
   padding-right: var(--space-horizontal);
 }
 
+.customSpinner-primary {
+  color: var(--color-primary);
+}
+.customSpinner-white {
+  color: #ffffff;
+}
+
 ::-webkit-scrollbar-track {
   background-color: #eeeeee;
   opacity: 0.75;
