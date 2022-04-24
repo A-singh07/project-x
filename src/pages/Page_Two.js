@@ -3,9 +3,9 @@ import PageTwoComp from '../components/PageTwoComp/PageTwoComp'
 
 const Page_Two = () => {
   return (
-    <div>
+    <>
       <PageTwoComp />
-    </div>
+    </>
   )
 }
 

@@ -44,6 +44,14 @@
   padding: 5px 10px;
 } */
 
+.message {
+  display: flex;
+}
+.message p {
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
 #CPass {
   margin-bottom: 20px;
 }

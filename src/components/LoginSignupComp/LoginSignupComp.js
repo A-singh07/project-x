@@ -13,13 +13,16 @@ const LoginSignupComp = () => {
     <div className={' mainLayout'}>
       <div className={styles.LSHead}>
         <h2>{toggleForm ? "Login" : "Create Account"}</h2>
-        <p>Already have an account? <a href="#" id="signin" onClick={() => setToggleForm(!toggleForm)}>{toggleForm ? "Sign Up" : "Sign In"}</a></p>
+        <div className={styles.message}>
+          {
+            toggleForm ? "Don't have an account?" : "Already have an account?"
+          }
+          <p onClick={() => setToggleForm(!toggleForm)}>&nbsp;<u>{toggleForm ? 'Sign up' : 'Login'}</u></p>
+        </div>
       </div>
       {
         toggleForm ? <LoginForm /> : <SignupForm />
       }
-      {/* <ButtonCustom primaryBtn btnText={toggleForm ? "Click to SignUp" : "Click to Login"} onClick={() => setToggleForm(!toggleForm)} /> */}
-
     </div>
   )
 

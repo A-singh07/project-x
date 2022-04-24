@@ -1,18 +1,18 @@
-import { usestate } from 'react'
+import { useState } from 'react';
+import {
+  useNavigate
+} from 'react-router-dom';
 import styles from './LoginSignupComp.module.css'
 import ButtonCustom from '../buttonCustom/ButtonCustom'
 import CreateAccountImg from '../../assets/CreateAccount.jpg'
-import LoginForm from './LoginForm'
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
-import { useState } from 'react'
+import { userRegister } from '../../services/auth';
 
 const SignupForm = () => {
-  // const [toggleForm, setToggleForm] = useState(false)
 
-  // {
-  //   toggleForm ? <LoginForm /> : <SignupForm />
-  // }
+  const navigate = useNavigate();
+
   const options = [
     {
       value: 'doctor',
@@ -24,35 +24,88 @@ const SignupForm = () => {
     },
   ];
 
-  const [option, setOption] = useState('doctor');
+  const [loader, setLoader] = useState(false);
+  const [option, setOption] = useState('patient');
+  const [signupObject, setSignupObject] = useState({
+    name: '',
+    email: '',
+    licenseNumber: '',
+    speciality: '',
+    password: '',
+    cnfpassword: '',
+    userType: option
+  });
 
-  const handleChange = (event) => {
-    setOption(event.target.value);
-  };
+  const [incorrectPassword, setIncorrectPassword] = useState(false)
+
+  const handleChange = (e) => {
+    if (e.target.name === "userType") setOption(e.target.value)
+
+    setSignupObject({
+      ...signupObject,
+      [e.target.name]: e.target.value
+    });
+
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (signupObject.name !== '' && signupObject.email !== '' && signupObject.password !== '') {
+
+      setLoader(true);
+
+      if (signupObject.password !== signupObject.cnfpassword) {
+        setIncorrectPassword(true)
+        setLoader(false)
+        return
+      }
+
+      let userObj;
+      if (signupObject.userType === "patient") {
+        userObj = {
+          name: signupObject.name,
+          email: signupObject.email,
+          password: signupObject.password
+        }
+      } else {
+        userObj = signupObject;
+      }
+
+      userRegister(userObj)
+        .then((res) => {
+          if (res && res._id) {
+            sessionStorage.setItem("userRegister", JSON.stringify(res))
+            navigate('/page_two')
+          }
+        }).catch(err => alert("Couldn't register, try again!"))
+
+    } else {
+      alert("Fill out all the fields to continue!");
+    }
+  }
 
   return (
-    <div>
-      {/* <div className={styles.LSHead}>
-          <h2>{toggleForm ? "Login" : "Create Account"}</h2>
-          <p>Already have an account? <a href="#" id="signin" onClick={() => setToggleForm(!toggleForm)}>{toggleForm ? "Sign Up" : "Sign In"}</a></p>
-        </div> */}
+    <>
       <div className={styles.LSInner}>
         <div className={styles.LSLeft}>
-          <form action="">
-            <TextField style={{ marginBottom: "10px" }} id="standard-basic" label="Full Name" fullWidth />
-            {/* <select name="" id="">
-              <option id={styles.disabled} value="Select" disabled selected hidden>Select</option>
-              <option value="Doctor">Doctor</option>
-              <option value="Patient">Patient</option>
-            </select> */}
+          <form>
             <TextField
               style={{ marginBottom: "10px" }}
               fullWidth
-              id="outlined-select-user"
-              select
-              label="Select"
-              value={option}
+              label="Full Name *"
+              name='name'
               onChange={handleChange}
+              value={signupObject.name}
+            />
+            <TextField
+              style={{ marginBottom: "10px" }}
+              fullWidth
+              select
+              label="User Type *"
+              name='userType'
+              onChange={handleChange}
+              value={signupObject.userType}
             >
               {options.map((option) => (
                 <MenuItem key={option.value} value={option.value}>
@@ -60,27 +113,70 @@ const SignupForm = () => {
                 </MenuItem>
               ))}
             </TextField>
-            <TextField style={{ marginBottom: "10px" }} id="standard-basic" label="Email" fullWidth />
+            <TextField
+              style={{ marginBottom: "10px" }}
+              fullWidth
+              label="Email *"
+              name='email'
+              onChange={handleChange}
+              value={signupObject.email}
+            />
             {
               option === 'doctor' &&
               <>
-                <TextField style={{ marginBottom: "10px" }} id="standard-basic" label="License Number" fullWidth />
-                <TextField style={{ marginBottom: "10px" }} id="standard-basic" label="Speciality" fullWidth />
+                <TextField
+                  style={{ marginBottom: "10px" }}
+                  fullWidth
+                  label="License Number *"
+                  name='licenseNumber'
+                  onChange={handleChange}
+                  value={signupObject.licenseNumber}
+                />
+                <TextField
+                  style={{ marginBottom: "10px" }}
+                  fullWidth
+                  label="Speciality *"
+                  name='speciality'
+                  onChange={handleChange}
+                  value={signupObject.speciality}
+                />
               </>
             }
-            <TextField style={{ marginBottom: "10px" }} id="standard-basic" label="Password" fullWidth />
-            <TextField style={{ marginBottom: "10px" }} id="standard-basic" label="Confirm Password" fullWidth />
+            <TextField
+              style={{ marginBottom: "10px" }}
+              fullWidth
+              label="Password *"
+              name='password'
+              onChange={handleChange}
+              value={signupObject.password}
+              error={incorrectPassword}
+            />
+            <TextField
+              style={{ marginBottom: "10px" }}
+              fullWidth
+              label="Confirm Password *"
+              name='cnfpassword'
+              onChange={handleChange}
+              value={signupObject.cnfpassword}
+              error={incorrectPassword}
+              helperText={incorrectPassword && "Passwords do not match, please retype"}
+            />
+            <ButtonCustom
+              primaryBtn
+              btnText="Create Account"
+              fullWidth
+              btnType={'submit'}
+              onClick={handleSubmit}
+              loader={loader}
+            />
           </form>
-          <div className={styles.CABtn}>
-            <ButtonCustom primaryBtn btnText="Create Account" fullWidth />
-          </div>
           <div className={styles.GSignUp}>Sign Up with Google</div>
         </div>
         <div className={styles.LSRight}>
           <img src={CreateAccountImg} alt="" />
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

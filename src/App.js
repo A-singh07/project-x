@@ -3,6 +3,7 @@ import {
   Routes,
   Route
 } from 'react-router-dom';
+import axios from 'axios';
 
 import MainLayout from './components/mainLayout/MainLayout';
 import Home from './pages/Home';
@@ -25,7 +26,11 @@ import './App.css';
 
 function App() {
 
+  // default base url
+  axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [userData, setUserData] = useState()
 
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -42,7 +47,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <GeneralContext.Provider value={{ windowWidth }}>
+      <GeneralContext.Provider value={{ windowWidth, setUserData, userData }}>
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />

@@ -1,61 +1,85 @@
-import React from 'react'
+import { useState, useContext } from 'react';
+import {
+  useNavigate
+} from 'react-router-dom'
 import styles from './LoginSignupComp.module.css'
 import ButtonCustom from '../buttonCustom/ButtonCustom'
 import CreateAccountImg from '../../assets/CreateAccount.jpg'
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
-import { useState } from 'react'
+import { userLogin } from '../../services/auth';
+import { GeneralContext } from '../../context/GeneralContext';
+
 
 const LoginForm = () => {
-  const options = [
-    {
-      value: 'Doctor',
-      label: 'Doctor',
-    },
-    {
-      value: 'Patient',
-      label: 'Patient',
-    },
-  ];
 
-  const [option, setOption] = React.useState('Doctor');
+  const { setUserData } = useContext(GeneralContext)
 
-  const handleChange = (event) => {
-    setOption(event.target.value);
-  };
+  const navigate = useNavigate();
+  const [loader, setLoader] = useState(false);
+
+  const [loginObject, setLoginObject] = useState({
+    email: '',
+    password: '',
+  })
+
+  const handleChange = (e) => {
+    setLoginObject({
+      ...loginObject,
+      [e.target.name]: e.target.value
+    });
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoader(true);
+
+    if (Object.keys(loginObject) === '') {
+      alert('Fill out all the fields to continue!');
+      setLoader(false)
+      return
+    }
+
+    userLogin(loginObject)
+      .then((res) => {
+        if (res && res._id) {
+          sessionStorage.setItem("userData", JSON.stringify(res));
+          setUserData(res);
+          navigate('/')
+        }
+      })
+  }
 
   return (
 
     <div className={styles.LSInner}>
       <div className={styles.LSLeft}>
-        {/* <div id={styles.names} className={styles.NameInputCont}>
-          <input type="text" placeholder="First Name" />
-          <input type="text" placeholder="Last Name" />
-        </div> */}
         <form action="">
-          {/* <TextField
+          <TextField
             style={{ marginBottom: "10px" }}
             fullWidth
-            id="outlined-select-currency"
-            select
-            label="Select"
-            value={option}
+            label="Email *"
+            name="email"
             onChange={handleChange}
-          >
-            {options.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField> */}
-          <TextField style={{ marginBottom: "10px" }} id="standard-basic" label="Email" fullWidth />
-          <TextField style={{ marginBottom: "10px" }} id="standard-basic" label="Password" fullWidth />
+            value={loginObject.email}
+          />
+          <TextField
+            style={{ marginBottom: "10px" }}
+            fullWidth
+            label="Password *"
+            name="password"
+            onChange={handleChange}
+            value={loginObject.password}
+          />
+          <ButtonCustom
+            primaryBtn
+            btnText="Login"
+            fullWidth
+            btnType={'submit'}
+            onClick={handleSubmit}
+            loader={loader}
+          />
         </form>
-        {/* <input id={styles.CPass} type="text" placeholder="Confirm Password" /> */}
-        <div className={styles.LBtn}>
-          <ButtonCustom primaryBtn btnText="Login" fullWidth />
-        </div>
-        {/* <div className={styles.GSignUp}>Sign Up with Google</div> */}
       </div>
       <div className={styles.LSRight}>
         <img src={CreateAccountImg} alt="" />

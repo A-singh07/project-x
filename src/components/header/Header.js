@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import {
   NavLink
 } from 'react-router-dom';
+import Avatar from '@mui/material/Avatar';
 
 import { GeneralContext } from '../../context/GeneralContext';
 
@@ -10,7 +11,7 @@ import styles from './header.module.css';
 
 const Header = () => {
 
-  const { windowWidth } = useContext(GeneralContext)
+  const { windowWidth, userData } = useContext(GeneralContext)
 
   const navbarList = [
     {
@@ -59,9 +60,15 @@ const Header = () => {
                 </NavLink>
               )
             }
-            <NavLink to={'login'}>
-              <ButtonCustom btnText={'Login / Signup'} secondaryBtn />
-            </NavLink>
+            {
+              !userData ?
+                <NavLink to={'login'}>
+                  <ButtonCustom btnText={'Login / Signup'} secondaryBtn />
+                </NavLink> :
+                <Avatar sx={{ width: 40, height: 40, marginLeft: '1rem' }}>
+
+                </Avatar>
+            }
           </nav>
         }
       </header>

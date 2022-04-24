@@ -14,9 +14,9 @@
   transition: 0.3s;
 }
 
-.MainCont:hover {
+/* .MainCont:hover {
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-}
+} */
 
 .MainDiv {
   width: 100%;
@@ -26,10 +26,33 @@
   align-items: center;
 }
 
+.subDiv {
+  max-width: 400px;
+  height: max-content;
+  margin: 0 1rem 3rem;
+}
+
+.subDiv > p {
+  font-size: 0.75rem;
+  display: flex;
+  align-items: start;
+  text-align: left;
+  padding: 0.75rem;
+  border-radius: 10px;
+}
+
+.subDiv > p > span {
+  margin-left: 0.8rem;
+}
+.info {
+  background: var(--color-grey);
+}
+
 .ChildDiv {
   border-radius: 8px;
-  width: 35%;
-  height: 200px;
+  min-width: 200px;
+  max-width: 230px;
+  margin: auto;
   box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
     rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
   display: flex;
@@ -38,7 +61,7 @@
   padding: 3rem;
   transition: 0.3s;
   transform: translate(0%, -30%);
-  /* background-color: var(--color-primary-lightest); */
+  cursor: pointer;
 }
 
 .ChildDiv:first-of-type:hover {
@@ -53,6 +76,36 @@
     var(--color-success-light) -3px -3px 6px 1px inset;
 }
 
+.CallAmbulance {
+  height: max-content;
+  width: 100%;
+}
+
+.userName {
+  text-align: center;
+  width: 100%;
+  font-size: 1.5rem;
+}
+.userName span {
+  color: var(--color-primary);
+}
+
+.description {
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  color: var(--color-grey-darker);
+}
+
+.callAmb {
+  background-color: var(--color-danger-light) !important;
+  color: var(--color-danger) !important;
+}
+.callAmb:hover {
+  background-color: var(--color-danger-dark) !important;
+}
+
 @media only screen and (max-width: 992px) {
   .MainCont {
     width: 90%;
@@ -63,18 +116,17 @@
 @media only screen and (max-width: 768px) {
   .MainCont {
     width: 90%;
-    height: auto;
+    height: max-content;
   }
   .MainDiv {
-    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 3rem;
   }
-  .ChildDiv {
+
+  /* .ChildDiv {
     width: 80%;
     height: 300px;
     margin: 3rem 0;
     transform: translate(0%);
-  }
-  .ChildDiv:last-of-type {
-    margin-top: 0;
-  }
+  } */
 }
