@@ -1,15 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import {
+  useNavigate
+} from 'react-router-dom'
 import styles from './bookAppointmentStyle.module.css'
 import stylestwo from '../features/featureSection.module.css';
 import FeatureCard from '../features/FeatureCard'
 import ModalCustom from '../modalCustom/ModalCustom';
 // import SpecialitiesSection from '../specialities/SpecialitiesSection';
-import Alert from '@mui/material/Alert'
+import Alert from '@mui/material/Alert';
+
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 const BookAppointmentComp = () => {
 
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
+
+  const onModalClose = () => {
+    navigate('/')
+  }
 
   const cardDataTwo = [
     {
@@ -38,10 +49,33 @@ const BookAppointmentComp = () => {
     },
   ]
 
+  const [medicalHist, setMedicalHist] = useState(true);
+  useEffect(() => {
+    if (sessionStorage.getItem("userData") && JSON.parse(sessionStorage.getItem("userData")).appointments.length === 0)
+      setMedicalHist(false)
+  }, []);
+
+
+  const [backdrop, setBackdrop] = useState(false)
+
+  const handleSubmit = () => {
+    setBackdrop(true)
+
+    setTimeout(() => {
+      setBackdrop(false)
+      setShowModal(true)
+    }, 3000);
+  }
+
   return (
     <div>
       <div>
-        <Alert variant="filled" severity="info" className={styles.detailsAlert}>You are yet to fill up your medical history details</Alert>
+        {
+          !medicalHist &&
+          <Alert variant="filled" severity="info" className={styles.detailsAlert}>
+            You are yet to fill up your medical history details
+          </Alert>
+        }
         <section className={stylestwo.sectionWrapper}>
           <div className={'mainLayout'}>
             <h3 className={stylestwo.heading}>Select Doctor</h3>
@@ -53,7 +87,7 @@ const BookAppointmentComp = () => {
                     subHeading={card.subHeading}
                     image={card.image}
                     rating={card.rating}
-                    onClick={() => setShowModal(true)}
+                    onClick={handleSubmit}
                     key={index}
                   />
                 )
@@ -62,12 +96,20 @@ const BookAppointmentComp = () => {
           </div>
         </section>
 
+        <Backdrop
+          open={backdrop}
+          onClick={() => setBackdrop(false)}
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>
+
         <ModalCustom
           show={showModal}
           setShow={setShowModal}
           modalHeading={'Appointment Booked'}
-          modalBody={`An appointment has been booked on 5th May 2022`}
+          modalBody={`An appointment has been booked Successfully!`}
           modalBtnText={'Okay'}
+          onClose={onModalClose}
         />
 
       </div>
